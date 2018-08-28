@@ -34,4 +34,13 @@ describe "Manejo fino de las finanzas de Baigorria"{
 		assert.equals(22000, baigorria.totalDeuda())
 		assert.equals(0, baigorria.totalDinero())
 	}
+	test "Baigorria cobra y paga deudas de vuelta"{
+		baigorria.gastar(4000)
+		baigorria.gastar(8000)
+		baigorria.cobrarSueldo()
+		baigorria.gastar(25000)
+		baigorria.cobrarSueldo()
+		assert.equals(7000,baigorria.totalDeuda())
+		assert.equals(0, baigorria.totalDinero())
+	}
 }
