@@ -29,7 +29,9 @@ object baigorria {
 	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
 	method cobrarSueldo(){ 
 		if(self.sueldo()>deuda){
-			total += self.sueldo() - deuda	
+			total += self.sueldo() - deuda
+			
+			// TODO Innecesariamente enroscado, más fácil y claro es deuda = 0	
 			deuda -= deuda
 		}
 		else{
@@ -42,12 +44,15 @@ object baigorria {
 	method totalDinero(){
 		return total
 	}
+	
+	// TODO Hay lógica repetida entre gastar y cobrar, ¿cómo podría evitarse?
 	method gastar(cuanto){
 		if(total > cuanto){
 			total -= cuanto
 		}			
 		else{
 			deuda += cuanto - total
+			// TODO total = 0	
 			total -= total 
 		}
 	}
